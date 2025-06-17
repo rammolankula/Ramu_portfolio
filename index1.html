@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ramu Molankula | FinTech Engineer Portfolio</title>
+  <style>
+    :root {
+      --primary-color: #1e2a38;
+      --accent-color: #0e918c;
+      --secondary-accent: #ffc107;
+      --background: #e0f7fa;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --link-color: #1a73e8;
+      --highlight-bg: #d7f5f3;
+      --border-radius: 10px;
+    }
+    body {
+      margin: 0; padding: 1rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--text-color);
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    }
+    h1, h2 {
+      color: var(--primary-color);
+      border-bottom: 2px solid var(--accent-color);
+      padding-bottom: 0.4rem;
+    }
+    h1 { font-size: 2.4rem; margin-bottom: 0.4rem; }
+    h3 { color: var(--accent-color); }
+    .section { margin-top: 2.5rem; }
+    .highlight {
+      background: var(--highlight-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 5px;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+    .link-group a {
+      margin-right: 1rem;
+      color: var(--link-color);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .link-group a:hover {
+      color: var(--accent-color);
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    .use-case, .error-flow, .api-showcase {
+      margin-bottom: 1.8rem;
+      background: #fdfefe;
+      padding: 1rem 1.2rem;
+      border-left: 6px solid var(--secondary-accent);
+      border-radius: var(--border-radius);
+    }
+    code {
+      background: #f1f1f1;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    @media (max-width: 600px) {
+      .container { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ramu Molankula</h1>
+    <p>📍 Berlin, Germany · 📞 +49 1520 4025949 · 📧 <a href="mailto:molankularamu@gmail.com">molankularamu@gmail.com</a></p>
+    <div class="link-group">
+      <a href="https://linkedin.com/in/ramu-molankula" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/rammolankula" target="_blank">💻 GitHub</a>
+    </div>
+
+    <div class="section">
+      <h2>About Me</h2>
+      <p>🎯 Experienced Java backend developer in the <span class="highlight">FinTech</span> domain with a focus on UPI and IUPI payment systems. Specialized in real-time payment gateway integration, international remittance models, XML schema design, and system-level error handling. Proven ability to build seamless flows across PSPs, sponsor banks, international partners, and merchant aggregators.</p>
+    </div>
+
+    <div class="section">
+      <h2>Live Use Case Scenarios</h2>
+
+      <div class="use-case">
+        <h3>📱 QR-based International Payment (Dynamic QR)</h3>
+        <ul>
+          <li>✈️ User scans a merchant's dynamic QR via a UPI app abroad.</li>
+          <li>🔍 QR validated using <code>ReqValQR</code>, FX rates retrieved.</li>
+          <li>🧾 Conversion preview shown, UPI PIN entered by user.</li>
+          <li>💸 Transaction posted via <code>ReqPay (CREDIT)</code>.</li>
+          <li>✅ Confirmation received by merchant.</li>
+        </ul>
+      </div>
+
+      <div class="use-case">
+        <h3>🎁 Gift Shop Payment (Static QR)</h3>
+        <ul>
+          <li>🖨️ Static QR scanned by user for foreign merchant.</li>
+          <li>💱 FX conversion applied; user confirms transaction.</li>
+          <li>🧾 Transaction completes instantly with confirmation.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Technical Flow Demonstrations</h2>
+
+      <div class="error-flow">
+        <h3>🔁 Timeout & Error Handling Flow</h3>
+        <ul>
+          <li>⚠️ Credit not confirmed in time → trigger <code>ReqChkTxn</code>.</li>
+          <li>🔄 If unresolved → fallback to <code>ReqPay (REVERSAL)</code>.</li>
+          <li>✅ Ends as <strong>Success</strong>, <strong>Failure</strong>, or <strong>Deemed</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="error-flow">
+        <h3>📡 System Heartbeat Monitoring</h3>
+        <p>💓 Connectivity ensured using <code>ReqHbt</code> / <code>RespHbt</code> before transactions begin.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>API Responsibilities</h2>
+      <div class="api-showcase">
+        <ul>
+          <li><code>ReqValQR</code> - Validate QR & merchant.</li>
+          <li><code>ReqPay</code> - Credit/Debit fund flow.</li>
+          <li><code>ReqChkTxn</code> - Resolve uncertain credit state.</li>
+          <li><code>ReqPay (REVERSAL)</code> - Reverse on failure.</li>
+          <li><code>ReqHbt</code> - Maintain system availability.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Remittance Models</h2>
+      <ul>
+        <li>🌐 <strong>Generic Model 1:</strong> FIR, FOR</li>
+        <li>🇸🇬 <strong>PayNow Model 2:</strong> FIR, FOR</li>
+        <li>🛍️ <strong>Acceptance Model</strong></li>
+        <li>🛒 <strong>International E-commerce:</strong> INR, FCY, DCC, AutoPay</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Key Contributions</h2>
+      <ul>
+        <li>🔧 Built simulations covering FX validation, authorization & lifecycle flows.</li>
+        <li>⚙️ Managed errors like schema mismatches, signature failures, timeouts.</li>
+        <li>📈 Delivered compliance-grade flows with live production validation logic.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Connect</h2>
+      <p>📧 Email: <a href="mailto:molankularamu@gmail.com">molankularamu@gmail.com</a></p>
+      <p>📞 Phone: +49 1520 4025949</p>
+      <p>📍 Location: Berlin, Germany</p>
+    </div>
+  </div>
+</body>
+</html>
