@@ -152,7 +152,12 @@ a:hover{text-decoration:underline}
   gap: 10px; /* Adds space between the buttons */
   align-items: center;
 }
-
+.name {
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  vertical-align: middle;
+  margin-left: 10px; 
+}
 .site-footer{border-top:1px solid rgba(0,0,0,.08);margin-top:18px}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
 
