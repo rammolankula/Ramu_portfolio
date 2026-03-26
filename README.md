@@ -22,5 +22,3 @@ A fast, accessible, and SEO‑friendly portfolio you can deploy on **GitHub Page
 - Responsive, accessible (skip link, focus styles), dark‑mode with persistence.
 - SEO: meta tags + Schema.org structured data.
 - Lighthouse‑friendly.
-
-_Last updated: 2025-08-19_
